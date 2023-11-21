@@ -1,0 +1,49 @@
+<!--
+<%= form_with(model: bill) do |form| %>
+  <% if bill.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+        <% bill.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :date, style: "display: block" %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.label :total_amount, style: "display: block" %>
+    <%= form.number_field :total_amount %>
+  </div>
+
+  <div>
+    <%= form.label :total_products, style: "display: block" %>
+    <%= form.number_field :total_products %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+-->
+
+<%= form_with model: @Bill, local: true do |f| %>
+  <fieldset>
+    <legend>Bill:</legend>
+    <%= f.fields_for :bill_details do |billdet_form| %>
+      <%= render "billdet_form", f: billdet_form %>
+    <% end %>
+    <%= link_to_add_fields "Add bill detail", f, :addresses %>
+  </fieldset>
+  <%= f.submit %>
+<% end %>
+
+
+
+

@@ -1,0 +1,23 @@
+<br><br>
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Category</th>
+  </tr>
+    <tr>
+      <td><%= @product.name %></td>
+      <td><%= @product.quantity %></td>
+      <td><%= number_to_currency(@product.price) %></td>
+      <td> <%= @product.category.name %> </td>
+    
+    </tr>
+</table>    
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
+
+
+
+
+

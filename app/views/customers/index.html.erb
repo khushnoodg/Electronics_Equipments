@@ -1,0 +1,28 @@
+<h1>Customer</h1>
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>AGE</th>
+    <th>ADDRESS</th>
+    <th>PHONE_NO</th>
+    <th>Action</th>
+  </tr>
+  <% @customers.each do |customer| %>
+    <tr>
+      <td><%= customer.name %></td>
+      <td><%= customer.age %></td>
+      <td><%= customer.address  %></td>
+      <td><%= customer.phone  %></td>
+      <td>
+           <div class="horizontal-buttons">
+        <%= link_to 'Show', customer %>
+        <%= link_to 'Edit', edit_customer_path(customer) %>
+        <%= button_to 'Delete', customer, method: :delete %>
+        </div>  
+      </td>
+
+    </tr>
+  <% end
+  %>
+</table>
+<%= link_to 'New Customer', new_customer_path %>

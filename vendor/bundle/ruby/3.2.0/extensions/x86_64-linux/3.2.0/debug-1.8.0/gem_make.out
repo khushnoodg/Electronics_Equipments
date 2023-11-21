@@ -1,0 +1,19 @@
+current directory: /home/khushnoood/E_store/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+/home/khushnoood/.asdf/installs/ruby/3.2.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/khushnoood/E_store/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231102-4377-4nd4w sitelibdir\=./.gem.20231102-4377-4nd4w clean
+
+current directory: /home/khushnoood/E_store/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231102-4377-4nd4w sitelibdir\=./.gem.20231102-4377-4nd4w
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/khushnoood/E_store/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231102-4377-4nd4w sitelibdir\=./.gem.20231102-4377-4nd4w install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20231102-4377-4nd4w/debug
+
+current directory: /home/khushnoood/E_store/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231102-4377-4nd4w sitelibdir\=./.gem.20231102-4377-4nd4w clean

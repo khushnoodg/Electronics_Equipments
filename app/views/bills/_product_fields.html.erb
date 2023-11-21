@@ -1,0 +1,24 @@
+<!-- app/views/bills/_product_fields.html.erb -->
+
+<div class="nested-fields">
+  <%= f.hidden_field :_destroy %>
+  <div>
+     <%= f.label :product_id %>
+     <%= f.collection_select :product_id, Product.all, :id, :name, prompt: "Select a product" %>
+  </div>
+  <div>
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity, class: "quantity-field" %>  
+  </div>
+  <div>
+  <%= f.label :price_per_unit  %>
+  <%= f.number_field :price_per_unit,  class: "price-per-unit-field" %>
+  </div>
+  <div>
+   <%= f.label :total_price %>
+   <%= f.number_field :total_price, class: "total-price-field", readonly: true %>
+   </div>
+  <div>
+    <%= link_to "Remove", '#', class: "remove_fields" %>
+  </div>
+</div>

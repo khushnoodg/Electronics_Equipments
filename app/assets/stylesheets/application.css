@@ -1,0 +1,131 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+
+ .horizontal-buttons {
+  display: flex;
+  gap: 6px; /* Adjust the gap as needed */
+}
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  
+  /* Header section */
+  .bheader {
+    text-align: center;
+    background-color: #0d0e0d;
+    color: #fff;
+    padding: 40px 0;
+  }
+  
+  .store-name {
+    font-size: 36px;
+    font-weight: bold;
+  }
+  
+  .description {
+    font-size: 18px;
+  }
+  
+  /* Product listings */
+  .products {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    background-color: #fff;
+  }
+  
+  .product img {
+    max-width: 100%;
+  }
+  
+  .price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .buy-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .buy-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Contact section */
+  .contact {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .navbar {
+    background-color: #007bff;
+    padding: 4px 0;
+    text-align: center;
+  }
+  
+  .navbar-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .navbar-item {
+    display: inline-block; /* Use inline-block to make both button and links appear in the same line */
+    margin-right: 20px;
+  }
+  
+  .btn,
+  .navbar-item a {
+    text-decoration: none;
+    color: #1a1717;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block; /* Use inline-block to align button and links horizontally */
+    margin-right: 30px; /* Adjust as needed to provide spacing between button and links */
+  }
+  
+  .navbar-item a {
+    color: #fff;
+  }
+  
+  .btn:hover,
+  .navbar-item a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Add any additional styles for the button with class btn here */
+  

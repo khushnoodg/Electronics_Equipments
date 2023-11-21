@@ -1,0 +1,13 @@
+<nav class="navbar">
+  <ul class="navbar-list">  
+  <li class="navbar-item"><% if user_signed_in? %><%= button_to  'Logout', destroy_user_session_path, method: :delete,class: 'btn' %></li>
+    <li class="navbar-item"><%= link_to 'Home', root_path %></li>
+    <li class="navbar-item"><%= link_to 'Product', products_path %></li>
+    <li class="navbar-item"><%= link_to 'Customer', customers_path %></li>
+    <li class="navbar-item"><%= link_to 'Sale/Bill', addbill_path %></li>
+    <li class="navbar-item"><%= link_to 'Purchase', purchases_path %></li>
+     <li class="navbar-item"><%= link_to 'Categories', categories_path %></li>
+     <li class="navbar-item"><%= link_to 'Active-storage', posts_path %></li>
+      <li class="navbar-item"><% else %><%= link_to 'Sign up', new_user_registration_path %> <%= link_to 'Login', new_user_session_path %><% end %></li>
+  </ul>
+</nav>

@@ -1,0 +1,76 @@
+<h1> Generate Bill</h1>  
+
+<%= form_for @bill do |f|  %>
+
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+  <%= f.label :total_amount %>
+  <%= f.number_field :total_amount %>
+  <%= f.label :total_products %>
+  <%= f.number_field :total_products %>
+  <h3>--------------------------------------------------------------------------------------------</h3>
+   <h1> Add Product</h2>
+ 
+   <%= f.fields_for :bill_details do |b| %> 
+   <%= b.label :product_id %>
+    <%= b.collection_select :product_id, Product.all, :id, :name, prompt: "Select a product" %>
+    <%= b.label :quantity %>
+    <%= b.number_field :quantity, class: "quantity-field" %>
+    <%= b.label :price_per_unit  %>
+    <%= b.number_field :price_per_unit,  class: "price-per-unit-field" %>
+    <%= b.label :total_price %>
+    <%= b.number_field :total_price, class: "total-price-field", readonly: true %><br><br><br><br><br>
+   <% end %>
+   <%=f.submit %> 
+    <% end %>
+
+
+    <script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get all the elements
+    var quantityFields = document.querySelectorAll(".quantity-field");
+    var pricePerUnitFields = document.querySelectorAll(".price-per-unit-field");
+    var totalPriceFields = document.querySelectorAll(".total-price-field");
+    var totalAmountField = document.querySelector("#bill_total_amount"); // Assuming the ID is 'bill_total_amount'
+
+    // Function to update total price
+    function updateTotalPrice(index) {
+      var quantity = parseFloat(quantityFields[index].value) || 0;
+      var pricePerUnit = parseFloat(pricePerUnitFields[index].value) || 0;
+      var totalPrice = quantity * pricePerUnit;
+
+      // Update the total price field
+      totalPriceFields[index].value = totalPrice.toFixed(2); // Adjust the precision as needed
+
+      // Recalculate the total amount
+      recalculateTotalAmount();
+    }
+
+    // Function to recalculate total amount
+    function recalculateTotalAmount() {
+      var totalAmount = 0;
+
+      // Sum up all the total prices
+      totalPriceFields.forEach(function (field) {
+        totalAmount += parseFloat(field.value) || 0;
+      });
+
+      // Update the total amount field
+      totalAmountField.value = totalAmount.toFixed(2); // Adjust the precision as needed
+    }
+
+    // Attach change event listeners to each quantity and price per unit field
+    quantityFields.forEach(function (field, index) {
+      field.addEventListener("input", function () {
+        updateTotalPrice(index);
+      });
+    });
+
+    pricePerUnitFields.forEach(function (field, index) {
+      field.addEventListener("input", function () {
+        updateTotalPrice(index);
+      });
+    });
+  });
+</script>

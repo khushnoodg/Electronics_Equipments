@@ -1,0 +1,25 @@
+<br><br>
+<table border="1">
+  <tr>
+  <th>Name</th>
+  <th>AGE</th>
+  <th>ADDRESS</th>
+  <th>PHONE_NO</th>
+  <th>Action</th>
+  </tr>
+    <tr>
+    
+      <td><%= @customer.name %></td>
+      <td><%= @customer.age %></td>
+      <td><%= @customer.address  %></td>
+      <td><%= @customer.phone  %></td>
+
+    </tr>
+</table>    
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>
+
+
+
+
+
