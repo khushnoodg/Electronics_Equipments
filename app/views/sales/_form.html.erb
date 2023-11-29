@@ -1,0 +1,51 @@
+<%= form_with(model: sale, data:{
+  controller: "nested-form",
+  nested_form_wrapper_selector_value: '.nested-form-wrapper'
+}) do |form| %>
+  <% if sale.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+
+      <ul>
+        <% sale.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="display: inline-block;">
+  <%= form.label :date %>
+  <%= form.date_field :date %>
+</div>
+
+<div style="display: inline-block;">
+  <%= form.label :total_amount %>
+  <%= form.number_field :total_amount %>
+</div>
+
+<div style="display: inline-block;">
+  <%= form.label :total_products %>
+  <%= form.number_field :total_products %>
+</div>
+<br><br>
+<h3>--------------------------------------------------------------------------------------------</h3>
+   <h1> Add Product</h2>
+  <template data-nested-form-target="template">
+  <%= form.fields_for :saledetails, Saledetail.new, child_index: 'NEW_RECORD' do |saledetail_fields| %>
+    <%= render "sales/saledetail_form", f: saledetail_fields %>
+  <% end %>
+   </template>
+   <%= form.fields_for :saledetails do |saledetail_fields| %>
+    <%= render "sales/saledetail_form", f: saledetail_fields %>
+    <% end %>
+
+
+
+   <div data-nested-form-target="target"> </div><br>
+   <button type="button" data-action="nested-form#add">ADD More Products </button>
+<br><br>
+  <div>
+    <%= form.submit "SAVE BILL" %>
+  </div>
+<% end %>

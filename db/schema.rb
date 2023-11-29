@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_15_200636) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_23_105535) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -103,6 +103,26 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_15_200636) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  create_table "saledetails", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "sale_id", null: false
+    t.integer "quantity"
+    t.integer "price_per_unit"
+    t.integer "total_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_saledetails_on_product_id"
+    t.index ["sale_id"], name: "index_saledetails_on_sale_id"
+  end
+
+  create_table "sales", force: :cascade do |t|
+    t.date "date"
+    t.integer "total_amount"
+    t.integer "total_products"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -120,4 +140,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_15_200636) do
   add_foreign_key "bill_details", "bills"
   add_foreign_key "bill_details", "products"
   add_foreign_key "products", "categories"
+  add_foreign_key "saledetails", "products"
+  add_foreign_key "saledetails", "sales"
 end

@@ -33,7 +33,7 @@ class addFields {
       // Add the new markup to the form if there are fields to add.
       newFields ? link.insertAdjacentHTML("beforebegin", newFields) : null;
     }
-  }
+  }   
   
   // Wait for turbolinks to load, otherwise `document.querySelectorAll()` won't work
   window.addEventListener("turbolinks:load", () => new addFields());
