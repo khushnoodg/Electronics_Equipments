@@ -1,44 +1,31 @@
 <div id="<%= dom_id sale %>">
-  <p>
-    <strong>Date:</strong>
-    <%= sale.date %>
-  </p>
-
-  <p>
-    <strong>Total amount:</strong>
-    <%= sale.total_amount %>
-  </p>
-
-  <p>
-    <strong>Total products:</strong>
-    <%= sale.total_products %>
-  </p>
-
-
-  <p>
-  <strong>BILL DETAILS:</strong>
-  <ul>
-  <% sale.saledetails.each do |task| %>
-    <li>
-     
-     <div>
-  <label for="product_id">Product ID-------></label>
-  <%= task.product_id %>
-</div>
-
-<div>
-  <label for="price_per_unit">Price per Unit------->:</label>
-  <%= task.price_per_unit %>
-</div>
-
-<div>
-  <label for="total_price">Total Price------->:</label>
-  <%= task.total_price %>
-</div>
-<br><br>
-    </li>
-    <% end %>
-    </ul>
-    </p>
-
+<table border="1">
+        <tr>
+        <th>Date</th>
+        <th>Total Amount</th>
+        <th>Total Products</th>
+        <th> Products_DEtails </th>
+      </tr>
+  <tr>
+  
+    <td><%= sale.date %></td>
+    <td><%= sale.total_amount %></td>
+    <td><%= sale.total_products %></td>
+    <td>ALL Products:
+    <table border="1">
+      <tr>
+        <th>Product ID</th>
+        <th>Price per Unit</th>
+        <th>Total Price</th>
+      </tr>
+      <% sale.saledetails.each do |task| %>
+        <tr>
+          <td><%= task.product_id %></td>
+          <td><%= task.price_per_unit %></td>
+          <td><%= task.total_price %></td>
+        </tr>
+      <% end %>
+    </table></td>
+  </tr>
+</table>
 </div>

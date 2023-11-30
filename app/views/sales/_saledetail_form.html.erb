@@ -2,10 +2,12 @@
 <%= f.label :product_id %>
 <%= f.collection_select :product_id, Product.all, :id, :name, prompt: "Select a product" %>
 <%= f.label :quantity %>
-<%= f.number_field :quantity %>
+<%= f.number_field :quantity , class: "quantity-field" %>
 <%= f.label :price_per_unit  %>
-<%= f.number_field :price_per_unit %>
+<%= f.number_field :price_per_unit , class: "price-per-unit-field" %>
 <%= f.label :total_price %>
 <%= f.number_field :total_price, class: "total-price-field" %>
 <button type="button" data-action="nested-form#remove"> Remove task</button>
 <%= f.hidden_field :_destroy %> 
+
+
